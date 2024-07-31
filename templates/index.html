@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Luas dan Keliling</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Hitung Luas dan Keliling Bangunan</h1>
+    <form method="post" action="/calculate">
+        <label for="shape">Bangunan:</label>
+        <select name="shape" id="shape">
+            <option value=" ">--Pilih Salah Satu--</option>
+            <option value="persegi">Persegi</option>
+            <option value="persegi panjang">Persegi Panjang</option>
+            <option value="segitiga">Segitiga Sama Sisi</option>
+            <option value="lingkaran">Lingkaran</option>
+        </select><br><br>
+
+        <label for="calculation">Jenis Hitungan:</label>
+        <select name="calculation" id="calculation">
+            <option value="luas">Luas</option>
+            <option value="keliling">Keliling</option>
+        </select><br><br>
+
+        <div id="inputs"></div>
+
+        <button type="submit">Hitung</button>
+    </form>
+    <br>
+    {% if result %}
+        <h2>Hasil: {{ result }}</h2>
+    {% endif %}
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
